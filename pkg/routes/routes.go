@@ -17,6 +17,8 @@ func ListRoutes(router *gin.Engine) {
 
 	router.POST("/api/articles", controllers.StoreArticle)
 	router.GET("/api/articles", controllers.IndexArticle)
+	router.PUT("/api/articles/:id", controllers.UpdateArticle)
+	router.DELETE("/api/articles/:id", controllers.DeleteArticle)
 
 	router.Run()
 }

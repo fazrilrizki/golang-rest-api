@@ -11,7 +11,9 @@ import (
 var DB *gorm.DB
 
 func Connect() {
-	database, err := gorm.Open(mysql.Open("root:fazril@tcp(localhost:3306)/belajar-golang"))
+	// Add parseTime=true to the DSN to properly handle time.Time values
+	dsn := "root:fazril@tcp(localhost:3306)/belajar-golang?charset=utf8mb4&parseTime=true&loc=Local"
+	database, err := gorm.Open(mysql.Open(dsn))
 	if err != nil {
 		panic(err)
 	}
